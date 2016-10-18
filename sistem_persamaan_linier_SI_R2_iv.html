@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Sistem Persamaan Linier dengan Metode Cramer</title>
+	<style> 
+		input {
+			width: 60px;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		 function persamaanlinear(){
+		  x1 = document.getElementById("x1").value;
+		  y1 = document.getElementById("y1").value;
+		  z1 = document.getElementById("z1").value;
+		  c1 = document.getElementById("c1").value;
+		  
+		  x2 = document.getElementById("x2").value;
+		  y2 = document.getElementById("y2").value;
+		  z2 = document.getElementById("z2").value;
+		  c2 = document.getElementById("c2").value;
+		  
+		  x3 = document.getElementById("x3").value;
+		  y3 = document.getElementById("y3").value;
+		  z3 = document.getElementById("z3").value;
+		  c3 = document.getElementById("c3").value;
+		  
+		  A1=x1*y2*z3;
+		  A2=y1*z2*x3;
+		  A3=z1*x2*y3;
+		  A4=z1*y2*x3;
+		  A5=x1*z2*y3;
+		  A6=y1*x2*z3;
+		  A=(A1+A2+A3)-(A4+A5+A6);
+		  document.getElementById("A1").value =  A1;
+		  document.getElementById("A2").value =  A2;
+		  document.getElementById("A3").value =  A3;
+		  document.getElementById("A4").value =  A4;
+		  document.getElementById("A5").value =  A5;
+		  document.getElementById("A6").value =  A6;
+		  document.getElementById("A").value =  A;
+		  
+		  B1=c1*y2*z3;
+		  B2=y1*z2*c3;
+		  B3=z1*c2*y3;
+		  B4=z1*y2*c3;
+		  B5=c1*z2*y3;
+		  B6=y1*c2*z3;
+		  B=(B1+B2+B3)-(B4+B5+B6);
+		  document.getElementById("B1").value =  B1;
+		  document.getElementById("B2").value =  B2;
+		  document.getElementById("B3").value =  B3;
+		  document.getElementById("B4").value =  B4;
+		  document.getElementById("B5").value =  B5;
+		  document.getElementById("B6").value =  B6;
+		  document.getElementById("B").value =  B;
+		  
+		  C1=x1*c2*z3;
+		  C2=c1*z2*x3;
+		  C3=z1*x2*c3;
+		  C4=z1*c2*x3;
+		  C5=x1*z2*c3;
+		  C6=c1*x2*z3;
+		  C=(C1+C2+C3)-(C4+C5+C6);
+		  document.getElementById("C1").value =  C1;
+		  document.getElementById("C2").value =  C2;
+		  document.getElementById("C3").value =  C3;
+		  document.getElementById("C4").value =  C4;
+		  document.getElementById("C5").value =  C5;
+		  document.getElementById("C6").value =  C6;
+		  document.getElementById("C").value =  C;
+		  
+		  D1=x1*y2*c3;
+		  D2=y1*c2*x3;
+		  D3=c1*x2*y3;
+		  D4=c1*y2*x3;
+		  D5=x1*c2*y3;
+		  D6=y1*x2*c3;
+		  D=(D1+D2+D3)-(D4+D5+D6);
+		  document.getElementById("D1").value =  D1;
+		  document.getElementById("D2").value =  D2;
+		  document.getElementById("D3").value =  D3;
+		  document.getElementById("D4").value =  D4;
+		  document.getElementById("D5").value =  D5;
+		  document.getElementById("D6").value =  D6;
+		  document.getElementById("D").value =  D;
+		}
+
+		 function hitungvariable(){ 
+		  A = document.getElementById("A").value;
+		  B = document.getElementById("B").value;
+		  C = document.getElementById("C").value;
+		  D = document.getElementById("D").value;
+		  
+		  X=B/A;
+		  Y=C/A;
+		  Z=D/A;
+		  document.getElementById("X").value =  X;
+		  document.getElementById("Y").value =  Y;
+		  document.getElementById("Z").value =  Z;
+		}
+	</script>
+
+<body>
+	<H1>Sistem Persamaan Linier dengan Metode Cramer</H1>
+	input SPL 1 :
+		<input type="text" id="x1"> x 
+		<input type="text" id="y1"> y 
+		<input type="text" id="z1"> z =
+		<input type="text" id="c1"> <br/>
+
+	input SPL 2 :
+	<input type="text" id="x2"> x
+	<input type="text" id="y2"> y
+	<input type="text" id="z2"> z =
+	<input type="text" id="c2"> <br/>
+
+	input SPL 3 :
+		<input type="text" id="x3"> x
+		<input type="text" id="y3"> y
+		<input type="text" id="z3"> z =
+		<input type="text" id="c3"> <input type="button" id="button" value="Hitung" onclick="persamaanlinear(); hitungvariable();"><br/> <br/>
+
+	A = (
+		<input type="text" id="A1"> + 
+		<input type="text" id="A2"> + 
+		<input type="text" id="A3"> ) - ( 
+		<input type="text" id="A4"> + 
+		<input type="text" id="A5"> + 
+		<input type="text" id="A6"> ) = 
+		<input type="text" id="A">
+		<br>
+	B = (
+		<input type="text" id="B1"> + 
+		<input type="text" id="B2"> + 
+		<input type="text" id="B3"> ) - ( 
+		<input type="text" id="B4"> + 
+		<input type="text" id="B5"> + 
+		<input type="text" id="B6"> ) = 
+		<input type="text" id="B">
+		<br/>
+	C = (
+		<input type="text" id="C1"> + 
+		<input type="text" id="C2"> + 
+		<input type="text" id="C3"> ) - ( 
+		<input type="text" id="C4"> + 
+		<input type="text" id="C5"> + 
+		<input type="text" id="C6"> ) = 
+		<input type="text" id="C">
+		<br/>
+	D = (
+		<input type="text" id="D1"> + 
+		<input type="text" id="D2"> + 
+		<input type="text" id="D3"> ) - ( 
+		<input type="text" id="D4"> + 
+		<input type="text" id="D5"> + 
+		<input type="text" id="D6"> ) = 
+		<input type="text" id="D">
+		<br/><br/>
+	Nilai Variabel X,Y, dan Z adalah :<br/>
+		X <input type="text" id="X"> 
+		Y <input type="text" id="Y"> 
+		Z <input type="text" id="Z"> 
+	<input type="button" value="Reset" onClick="window.location.reload()">
+	<div style="margin-left: 350px;">
+	<H2>Tugas Kelompok :</H2>
+	Qhoirul Anwar 11114003<br>
+	Hasanudin 1113023<br>
+	Royani 11114041<br><br>
+	<b>Sistem Informasi R2 Semester IV</b>
+	<div>
+</body>
